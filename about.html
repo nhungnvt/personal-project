@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Resume - Nhung Nguyen</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Inter & Playfair Display -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Lucide Icons for Premium Minimalist Aesthetic -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Embedded CSS with Premium Fintech Dark Color Palette & Single Language Switch Logic -->
+    <style>
+        /* Smooth fade-in transitions for interactive tabs */
+        .tab-content {
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            display: none;
+        }
+        .tab-content.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in-out forwards;
+        }
+        @keyframes fadeIn {
+            from { 
+                opacity: 0; 
+                transform: translateY(8px); 
+            }
+            to { 
+                opacity: 1; 
+                transform: translateY(0); 
+            }
+        }
+
+        /* Custom modern scrollbar styles for navigation pane */
+        ::-webkit-scrollbar {
+            width: 5px;
+            height: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0F172A; /* Deep Navy Base */
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1E293B; /* Light Navy Secondary */
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4AF37; /* Premium Gold Accent */
+        }
+
+        /* Single Language Toggle States */
+        /* VIETNAMESE STATE ACTIVE */
+        body.lang-vi .en-only { 
+            display: none !important; 
+        }
+        body.lang-vi .vi-only { 
+            display: block !important; 
+        }
+        
+        /* ENGLISH STATE ACTIVE */
+        body.lang-en .vi-only { 
+            display: none !important; 
+        }
+        body.lang-en .en-only { 
+            display: block !important; 
+        }
+
+        /* Neumorphic Tactical 3D Buttons inside Sidebar Nav using Light Navy & Gold */
+        .btn-3d-nav {
+            background-color: #1E293B !important; /* Light Navy Base */
+            color: #94A3B8 !important; /* Neutral Slate */
+            border: 1px solid rgba(148, 163, 184, 0.15) !important;
+            border-radius: 12px;
+            box-shadow: 0 4px 0 0 #0F172A, 0 6px 12px rgba(15, 23, 42, 0.5);
+            transform: translateY(-2px);
+            transition: all 0.15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+        }
+        .btn-3d-nav:hover {
+            color: #D4AF37 !important; /* Premium Gold Accent */
+            border-color: rgba(212, 175, 55, 0.4) !important;
+            transform: translateY(-1px);
+            box-shadow: 0 3px 0 0 #0F172A, 0 4px 8px rgba(15, 23, 42, 0.4);
+        }
+
+        /* Active pressed physical state for active tabs */
+        .btn-3d-nav.active-tab {
+            transform: translateY(2px) !important;
+            box-shadow: 0 0px 0 0 #0F172A, inset 0 2px 4px rgba(0, 0, 0, 0.6) !important;
+            border-color: #D4AF37 !important; /* Premium Gold */
+            color: #D4AF37 !important;
+            background-color: #0F172A !important; /* Deep Navy lún xuống */
+            filter: brightness(1.1);
+        }
+
+        /* Mobile responsive alterations for 3D buttons */
+        @media (max-width: 1023px) {
+            .btn-3d-nav {
+                transform: translateY(-1px);
+                box-shadow: 0 2px 0 0 #0F172A, 0 3px 6px rgba(15, 23, 42, 0.4);
+                white-space: nowrap;
+            }
+            .btn-3d-nav:hover {
+                transform: translateY(0px);
+                box-shadow: 0 1px 0 0 #0F172A, 0 2px 4px rgba(15, 23, 42, 0.3);
+            }
+            .btn-3d-nav.active-tab {
+                transform: translateY(1px) !important;
+                box-shadow: 0 0px 0 0 #0F172A, inset 0 2px 4px rgba(0, 0, 0, 0.5) !important;
+            }
+        }
+
+        /* Print Layout Optimization */
+        @media print {
+            .no-print { 
+                display: none !important; 
+            }
+            .print-full { 
+                width: 100% !important; 
+                display: block !important; 
+            }
+            .tab-content { 
+                display: block !important; 
+                opacity: 1 !important; 
+                transform: none !important; 
+                page-break-inside: avoid;
+                margin-bottom: 2rem;
+            }
+            body { 
+                background: white !important; 
+                color: black !important; 
+            }
+            .shadow-lg, .shadow-md, .shadow-xl, .shadow { 
+                box-shadow: none !important; 
+            }
+            .border-l-4, .border-l-2 { 
+                border-left-width: 4px !important; 
+            }
+        }
+    </style>
+
+    <!-- Tailwind Configuration and Color Mapping -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            navy: '#0F172A',      // Primary Base (Deep Navy)
+                            navyLight: '#1E293B', // Secondary Base (Light Navy)
+                            gold: '#D4AF37',      // Accent (Highlight Premium Gold)
+                            goldDark: '#B8901C', 
+                            slate: '#94A3B8',     // Neutral Slate
+                            emerald: '#059669'   
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="lang-vi bg-brand-navy text-slate-100 font-sans antialiased min-h-screen flex flex-col selection:bg-brand-gold selection:text-brand-navy">
+
+    <!-- Top Premium Navigation Bar -->
+    <header class="no-print bg-brand-navy text-white sticky top-0 z-50 shadow-md border-b border-brand-slate/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-8 h-8 rounded bg-brand-gold flex items-center justify-center text-brand-navy font-bold text-lg font-serif shadow">N</div>
+                <span class="font-serif font-semibold text-lg tracking-wide hidden sm:block">
+                    <span class="en-only">Executive Portfolio</span>
+                    <span class="vi-only">Hồ sơ Năng lực</span>
+                </span>
+            </div>
+            
+            <!-- Single Inline Bilingual Toggle Button matching your style snippet -->
+            <div class="flex items-center space-x-4">
+                <button id="lang-toggle" onclick="toggleLanguage()" class="flex items-center space-x-2 bg-brand-navyLight/50 hover:bg-brand-navyLight/80 border border-slate-700 px-4 py-1.5 rounded-full text-xs font-medium transition-all">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-brand-gold"></i>
+                    <span id="lang-text" class="text-slate-300">English</span>
+                </button>
+                
+                <!-- Premium Print Trigger -->
+                <button onclick="window.print()" class="p-2 bg-brand-navyLight border border-brand-slate/20 hover:border-brand-gold text-brand-slate hover:text-brand-gold rounded-full transition-all duration-300 text-xs flex items-center justify-center aspect-square" title="In / Xuất PDF">
+                    <i class="fa-solid fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 flex flex-col space-y-6">
+        
+        <!-- Premium Hero Segment (Secondary Base: Light Navy) -->
+        <section class="bg-brand-navyLight rounded-2xl shadow-xl overflow-hidden border border-brand-slate/10">
+            <!-- Top Elegant Accent Bar -->
+            <div class="h-2 bg-gradient-to-r from-brand-navy via-brand-gold to-brand-navy"></div>
+            
+            <div class="p-6 sm:p-10">
+                <div class="flex flex-col md:flex-row md:justify-between md:items-start gap-6">
+                    <!-- Name & Professional Summary -->
+                    <div class="flex-1 space-y-4">
+                        <div>
+                            <h1 class="text-3xl sm:text-4xl font-bold font-serif text-white tracking-tight leading-tight">
+                                <span class="vi-only">Nguyễn Việt Thùy Nhung</span>
+                                <span class="en-only">Nhung Nguyen</span>
+                            </h1>
+                            <p class="text-brand-gold font-semibold tracking-wider text-xs sm:text-sm uppercase mt-1">
+                                <span class="vi-only">Giám đốc Khối Vận hành • Cựu Chuyên viên HNX-HOSE</span>
+                                <span class="en-only">Chief of Staff • Head of People Operations • Ex-HNX/HOSE</span>
+                            </p>
+                        </div>
+                        
+                        <!-- Structured Summary -->
+                        <div class="text-brand-slate text-sm sm:text-base leading-relaxed max-w-4xl border-l-2 border-brand-gold/40 pl-4">
+                            <p class="vi-only">
+                                Quản lý điều hành với hơn 16 năm kinh nghiệm tiên phong trải dài trong lĩnh vực quản trị Insurtech, hoạch định chính sách tài chính và giám sát thị trường chứng khoán. Trực tiếp điều phối gọi vốn khởi nghiệp, vận hành hệ thống nhân sự và thiết kế hệ thống phân tích dữ liệu BI hiện đại. Cựu chuyên viên của các Sở giao dịch Chứng khoán nghiên sách và phát triển sản phẩm tài chính tại HOSE; giám sát viên tại HNX với chuyên môn sâu về vi mô thị trường và hệ thống công nghệ giao dịch bảo mật cao.
+                            </p>
+                            <p class="en-only">
+                                Dynamic and results-driven senior executive with 18 years of pioneering experience across Insurtech leadership, financial policy planning, and securities market surveillance. Proven track record in orchestrating multi-million dollar venture capital fundraising, formulating robust corporate governance models, implementing scalable HR infrastructures, and architecting advanced BI analytics frameworks. Distinguished former key policy developer at HOSE and surveillance specialist at HNX with deep expertise in market microstructure and secure high-availability financial trading systems.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Card Grid (Primary Base: Deep Navy) -->
+                    <div class="bg-brand-navy p-5 rounded-xl border border-brand-slate/20 w-full md:w-80 flex flex-col space-y-3.5 text-xs sm:text-sm">
+                        <h3 class="text-xs font-bold uppercase tracking-widest text-brand-slate border-b border-brand-slate/20 pb-2 flex items-center justify-between">
+                            <span>CONTACT DETAILS</span>
+                            <i class="fa-solid fa-address-card text-brand-gold text-sm"></i>
+                        </h3>
+                        
+                        <a href="mailto:nguyenvietthuynhung@gmail.com" class="flex items-center text-brand-slate hover:text-brand-gold transition-colors group">
+                            <span class="w-7 h-7 bg-brand-navyLight text-brand-gold rounded-lg flex items-center justify-center border border-brand-slate/30 mr-3 shadow-sm group-hover:bg-brand-gold group-hover:text-brand-navy transition-all duration-300">
+                                <i class="fa-regular fa-envelope"></i>
+                            </span>
+                            <span class="truncate font-mono">nguyenvietthuynhung@gmail.com</span>
+                        </a>
+                        
+                        <span class="flex items-center text-brand-slate">
+                            <span class="w-7 h-7 bg-brand-navyLight text-brand-gold rounded-lg flex items-center justify-center border border-brand-slate/30 mr-3 shadow-sm">
+                                <i class="fa-solid fa-phone"></i>
+                            </span>
+                            <span class="font-mono">(+84) 983 685 163</span>
+                        </span>
+                        
+                        <a href="#" class="flex items-center text-brand-slate hover:text-brand-gold transition-colors group">
+                            <span class="w-7 h-7 bg-brand-navyLight text-brand-gold rounded-lg flex items-center justify-center border border-brand-slate/30 mr-3 shadow-sm group-hover:bg-brand-gold group-hover:text-brand-navy transition-all duration-300">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </span>
+                            <span class="truncate font-mono">linkedin.com/in/nguyen-viet-thuy-nhung</span>
+                        </a>
+                        
+                        <span class="flex items-center text-brand-slate">
+                            <span class="w-7 h-7 bg-brand-navyLight text-brand-gold rounded-lg flex items-center justify-center border border-brand-slate/30 mr-3 shadow-sm">
+                                <i class="fa-solid fa-map-pin"></i>
+                            </span>
+                            <span class="vi-only">TP. Hồ Chí Minh, Việt Nam</span>
+                            <span class="en-only">Ho Chi Minh City, Vietnam</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Workspace Row -->
+        <div class="flex flex-col lg:flex-row gap-6 items-start">
+            
+            <!-- Left Navigation Bar/Tabs (Deep Navy Frame with Glass Effect) -->
+            <aside class="no-print w-full lg:w-80 shrink-0 lg:sticky lg:top-24 bg-brand-navyLight/95 backdrop-blur-md rounded-2xl shadow-xl border border-brand-slate/10 p-5 lg:h-[calc(100vh-140px)] flex flex-col justify-between">
+                <nav class="flex lg:grid lg:grid-rows-5 lg:gap-6 overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 gap-4 lg:h-full w-full scrollbar-none" aria-label="Resume Sections">
+                    
+                    <!-- Section Button: Professional Experience -->
+                    <div class="flex flex-col justify-center space-y-1 shrink-0 lg:shrink w-auto lg:w-full">
+                        <button onclick="switchTab('tab-experience')" id="btn-tab-experience" class="tab-btn btn-3d-nav active-tab w-full flex items-center justify-between text-left px-4 py-3 text-xs sm:text-sm font-semibold">
+                            <div class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-briefcase text-base"></i>
+                                <span class="vi-only">Kinh nghiệm Chuyên môn</span>
+                                <span class="en-only">Professional Experience</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs hidden lg:block"></i>
+                        </button>
+                        <!-- Sub-items for Quick Jump inside Experience (Primary Base: Deep Navy) -->
+                        <div class="hidden lg:flex justify-between items-center px-1 pt-1.5 gap-1.5">
+                            <button onclick="scrollToExperienceSection('exp-saladin')" class="flex-1 text-[10px] text-brand-slate hover:text-brand-gold text-center py-1 transition-all font-bold bg-brand-navy hover:bg-brand-navy border border-brand-slate/20 hover:border-brand-gold rounded-md shadow-sm">Saladin</button>
+                            <button onclick="scrollToExperienceSection('exp-hose')" class="flex-1 text-[10px] text-brand-slate hover:text-brand-gold text-center py-1 transition-all font-bold bg-brand-navy hover:bg-brand-navy border border-brand-slate/20 hover:border-brand-gold rounded-md shadow-sm">HOSE</button>
+                            <button onclick="scrollToExperienceSection('exp-hnx')" class="flex-1 text-[10px] text-brand-slate hover:text-brand-gold text-center py-1 transition-all font-bold bg-brand-navy hover:bg-brand-navy border border-brand-slate/20 hover:border-brand-gold rounded-md shadow-sm">HNX</button>
+                        </div>
+                    </div>
+
+                    <!-- Section Button: Education -->
+                    <div class="flex flex-col justify-center shrink-0 lg:shrink w-auto lg:w-full">
+                        <button onclick="switchTab('tab-education')" id="btn-tab-education" class="tab-btn btn-3d-nav w-full flex items-center justify-between text-left px-4 py-3 text-xs sm:text-sm font-semibold">
+                            <div class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-graduation-cap text-base"></i>
+                                <span class="vi-only">Học vấn &amp; Đào tạo</span>
+                                <span class="en-only">Education</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs hidden lg:block"></i>
+                        </button>
+                    </div>
+
+                    <!-- Section Button: Skills -->
+                    <div class="flex flex-col justify-center shrink-0 lg:shrink w-auto lg:w-full">
+                        <button onclick="switchTab('tab-skills')" id="btn-tab-skills" class="tab-btn btn-3d-nav w-full flex items-center justify-between text-left px-4 py-3 text-xs sm:text-sm font-semibold">
+                            <div class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-sliders text-base"></i>
+                                <span class="vi-only">Kỹ năng Cốt lõi</span>
+                                <span class="en-only">Core Skills</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs hidden lg:block"></i>
+                        </button>
+                    </div>
+
+                    <!-- Section Button: Honors & Awards -->
+                    <div class="flex flex-col justify-center shrink-0 lg:shrink w-auto lg:w-full">
+                        <button onclick="switchTab('tab-honors')" id="btn-tab-honors" class="tab-btn btn-3d-nav w-full flex items-center justify-between text-left px-4 py-3 text-xs sm:text-sm font-semibold">
+                            <div class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-award text-base"></i>
+                                <span class="vi-only">Danh hiệu &amp; Giải thưởng</span>
+                                <span class="en-only">Honors &amp; Awards</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs hidden lg:block"></i>
+                        </button>
+                    </div>
+
+                    <!-- Section Button: Interests -->
+                    <div class="flex flex-col justify-center shrink-0 lg:shrink w-auto lg:w-full">
+                        <button onclick="switchTab('tab-interests')" id="btn-tab-interests" class="tab-btn btn-3d-nav w-full flex items-center justify-between text-left px-4 py-3 text-xs sm:text-sm font-semibold">
+                            <div class="flex items-center space-x-2.5">
+                                <i class="fa-solid fa-compass text-base"></i>
+                                <span class="vi-only">Sở thích &amp; Phong cách</span>
+                                <span class="en-only">Interests</span>
+                            </div>
+                            <i class="fa-solid fa-chevron-right text-xs hidden lg:block"></i>
+                        </button>
+                    </div>
+                </nav>
+            </aside>
+
+            <!-- Right Detailed Content Panel -->
+            <section class="print-full flex-grow w-full bg-brand-navyLight rounded-xl shadow-md border border-brand-slate/10 p-6 sm:p-8 min-h-[500px]">
+                
+                <!-- TAB 1: Professional Experience -->
+                <div id="tab-experience" class="tab-content active space-y-12">
+                    
+                    <div class="border-b border-brand-slate/20 pb-4">
+                        <h2 class="text-2xl font-bold font-serif text-white flex items-center space-x-3">
+                            <i class="fa-solid fa-briefcase text-brand-gold text-xl"></i>
+                            <span class="vi-only">Kinh nghiệm Chuyên môn</span>
+                            <span class="en-only">Professional Experience</span>
+                        </h2>
+                    </div>
+
+                    <!-- Company 1: Saladin -->
+                    <div id="exp-saladin" class="relative pl-6 sm:pl-8 border-l-2 border-brand-gold/30 space-y-4">
+                        <div class="absolute -left-1.5 top-1.5 w-3.5 h-3.5 rounded-full bg-brand-gold border-2 border-brand-navyLight shadow-sm"></div>
+                        
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold text-white font-serif">
+                                    <span class="vi-only">Công ty TNHH Công nghệ và Tư vấn Saladin – Insurtech</span>
+                                    <span class="en-only">Saladin Technology and Consulting LLC – Insurtech</span>
+                                </h3>
+                                <p class="text-brand-gold font-semibold text-sm mt-0.5">
+                                    <span class="vi-only">Giám đốc Khối Vận hành &amp; Thành viên HĐQT</span>
+                                    <span class="en-only">Chief of Staff, Head of People Operations &amp; Board Member</span>
+                                </p>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 bg-brand-navy text-brand-slate text-xs font-bold rounded-full border border-brand-slate/20 shrink-0 self-start sm:self-auto">
+                                <i class="fa-regular fa-calendar-days mr-1.5 text-brand-gold"></i>
+                                <span class="vi-only">Tháng 06/2022 – Tháng 09/2025</span>
+                                <span class="en-only">June 2022 – September 2025</span>
+                            </span>
+                        </div>
+
+                        <div class="space-y-4 text-sm sm:text-base text-brand-slate leading-relaxed">
+                            
+                            <!-- Submodule: Fundraising -->
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-xs tracking-wider uppercase text-slate-500 flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                                    <span class="vi-only">Gọi vốn Chiến lược, Quản trị Doanh nghiệp &amp; Quản trị Rủi ro Pháp lý</span>
+                                    <span class="en-only">Strategic Fundraising, Corporate Governance &amp; Legal Risk Management</span>
+                                </h4>
+                                <ul class="list-disc list-outside pl-5 space-y-2">
+                                    <li class="pl-1">
+                                        <div class="vi-only">Trực tiếp điều phối toàn bộ quy trình gọi vốn, là đầu mối làm việc độc lập với các nhà đầu tư tổ chức quốc tế; quản lý toàn diện kho dữ liệu thẩm định (Virtual Data Room - VDR) và trực tiếp hoàn thành các cấu phần thẩm định pháp lý, tài chính, công nghệ và ESG qua các vòng gọi vốn.</div>
+                                        <div class="en-only">Directly spearheaded and coordinated fundraising processes as the primary liaison for international institutional investors; comprehensively managed the Virtual Data Room (VDR) and executed Legal, Financial, Technological, and ESG Due Diligence modules across the company's funding rounds.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Phối hợp sát sao cùng các hãng luật trong và ngoài nước để rà soát, đàm phán các bộ hồ sơ giao dịch lớn (SHA, SSA); chịu trách nhiệm kiểm soát và hoàn tất các điều kiện tiền quyết (CPs) cũng như điều kiện sau hoàn tất (CSs) để bảo đảm đóng giao dịch (transaction closure) đúng tiến độ.</div>
+                                        <div class="en-only">Collaborated with international and domestic law firms to review and negotiate transaction documents (SHA, SSA); held accountability for tracking and resolving Conditions Precedent (CPs) and Conditions Subsequent (CSs) to secure transaction closure.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Quản lý nghiệp vụ thư ký quản trị (corporate secretarial) và trực tiếp thiết kế khung kế hoạch phát hành ESOP hàng năm.</div>
+                                        <div class="en-only">Managed corporate secretarial functions and designed the annual ESOP framework.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Chủ trì quản trị rủi ro pháp lý cho mảng vận hành và sản phẩm số trong giai đoạn khung pháp lý vĩ mô có nhiều biến động lớn (Luật Kinh doanh Bảo hiểm mới, các quy định về Xúc tiến thương mại và Bảo vệ dữ liệu cá nhân); tái cấu trúc thành công quy trình sản phẩm để bảo đảm luồng cấp đơn trực tuyến tuân thủ tuyệt đối 100%.</div>
+                                        <div class="en-only">Governed legal risks for operations and digital products during major macroeconomic regulatory shifts (the new Law on Insurance Business, new regulations on Trade Promotion and Personal Data Protection); directly restructured product workflows to guarantee 100% absolute compliance for the online issuance flow.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Thẩm định và chuẩn hóa hệ thống hợp đồng thương mại phức tạp với các nhà bảo hiểm lớn và đối tác B2B2C; trực tiếp đàm phán bảo vệ biên lợi nhuận và kiểm soát chặt chẽ rủi ro phát sinh từ các sản phẩm công nghệ.</div>
+                                        <div class="en-only">Evaluated and restructured complex commercial contract frameworks signed with major insurance carriers and B2B2C partners; negotiated to protect profit margins and mitigate risks arising from tech products.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Đầu mối chủ trì công tác công bố thông tin và tuân thủ định kỳ cho doanh nghiệp có vốn đầu tư nước ngoài; báo cáo trực tiếp cho các cơ quan quản lý nhà nước như Cục Quản lý Giám sát Bảo hiểm (ISA), Ngân hàng Nhà nước (SBV) và Bộ Kế hoạch và Đầu tư (MPI).</div>
+                                        <div class="en-only">Led periodic regulatory compliance and disclosure frameworks for foreign-invested enterprises, reporting directly to state regulatory authorities including the Insurance Supervisory Authority (ISA), the State Bank of Vietnam (SBV), and the Ministry of Planning and Investment (MPI).</div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Submodule: Data & Analytics -->
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-xs tracking-wider uppercase text-slate-500 flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                                    <span class="vi-only">Phân tích Dữ liệu, Kiến trúc BI &amp; Quản trị Dự án</span>
+                                    <span class="en-only">Data Analytics, BI Architecture &amp; Project Management</span>
+                                </h4>
+                                <ul class="list-disc list-outside pl-5 space-y-2">
+                                    <li class="pl-1">
+                                        <div class="vi-only">Xây dựng hạ tầng phân tích dữ liệu quản trị (BI) nội bộ; trực tiếp xử lý, làm sạch dữ liệu thô và thiết lập hệ thống dashboard vận hành theo thời gian thực (real-time) trên Looker Studio, hỗ trợ đắc lực cho Ban điều hành và các phòng ban ra quyết định dựa trên dữ liệu.</div>
+                                        <div class="en-only">Structured the internal Business Intelligence (BI) data analytics infrastructure; directly processed and cleansed raw data, and established real-time operational dashboards on Looker Studio to drive data-informed decision-making for the Executive Board and functional departments.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Đảm nhiệm vai trò Giám đốc Dự án (Program Manager) điều phối các chiến dịch liên chức năng về sản phẩm số và kinh doanh; rà soát quy trình vận hành, định vị chính xác các điểm nghẽn hệ thống (systemic bottlenecks) để đề xuất giải pháp chiến lược cho đội ngũ Product Owners (POs) và Phát triển Kinh doanh (BD) thực thi.</div>
+                                        <div class="en-only">Served as Program Manager coordinating cross-functional initiatives across digital products and business lines; audited operational processes, identified systemic bottlenecks, and formulated strategic solutions for Product Owners (POs) and Business Development (BD) teams to execute.</div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Submodule: Human Resources & ESG -->
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-xs tracking-wider uppercase text-slate-500 flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                                    <span class="vi-only">Quản trị Nhân sự &amp; Thiết kế Khung ESG</span>
+                                    <span class="en-only">Human Resource Management &amp; ESG Framework Design</span>
+                                </h4>
+                                <ul class="list-disc list-outside pl-5 space-y-2">
+                                    <li class="pl-1">
+                                        <div class="vi-only">Thiết lập và vận hành độc lập hệ thống quản trị nhân sự tổng thể; xây dựng chính sách đánh giá hiệu suất và phát triển nhân tài theo định hướng dữ liệu (data-driven), giúp tối ưu hóa chi phí vận hành và tối đa hóa năng suất của đội ngũ kinh doanh.</div>
+                                        <div class="en-only">Established and independently operated a comprehensive HR management system; developed data-driven performance appraisal and talent development policies to optimize operational costs and maximize sales force productivity.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Định hình văn hóa doanh nghiệp dựa trên các giá trị cốt lõi (Challenge, Innovation, Ownership) nhằm thu hút, giữ chân nhân tài công nghệ và thúc đẩy mức độ gắn kết của nhân sự.</div>
+                                        <div class="en-only">Shaped corporate culture rooted in core values (Challenge, Innovation, Ownership) to retain tech talent and drive employee engagement.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Xây dựng khung báo cáo ESG tổng thể cho Saladin, tập trung vào mục tiêu giảm thiểu tác động môi trường thông qua số hóa 100% quy trình cấp đơn bảo hiểm (paperless workflow) và đáp ứng bộ tiêu chuẩn Phát triển Bền vững của LHQ, đặc biệt là mục tiêu Bình đẳng giới (SDG 5).</div>
+                                        <div class="en-only">Built Saladin’s overarching ESG reporting framework, focusing on environmental impact mitigation via 100% digitization of the insurance issuance process (paperless workflow), while aligning with the UN Sustainable Development Goals (SDGs), with a specific focus on Gender Equality (SDG 5).</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Company 2: HOSE -->
+                    <div id="exp-hose" class="relative pl-6 sm:pl-8 border-l-2 border-brand-gold/30 space-y-4 pt-4">
+                        <div class="absolute -left-1.5 top-5 w-3.5 h-3.5 rounded-full bg-brand-gold border-2 border-brand-navyLight shadow-sm"></div>
+                        
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold text-white font-serif">
+                                    <span class="vi-only">Sở Giao dịch Chứng khoán TP. Hồ Chí Minh – HOSE</span>
+                                    <span class="en-only">Ho Chi Minh Stock Exchange – HOSE</span>
+                                </h3>
+                                <p class="text-brand-goldDark font-semibold text-sm mt-0.5">
+                                    <span class="vi-only">Chuyên viên Cao cấp Nghiên cứu Phát triển &amp; Hoạch định Chính sách</span>
+                                    <span class="en-only">Senior R&D and Policy Planning Specialist</span>
+                                </p>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 bg-brand-navy text-brand-slate text-xs font-bold rounded-full border border-brand-slate/20 shrink-0 self-start sm:self-auto">
+                                <i class="fa-regular fa-calendar-days mr-1.5 text-brand-gold"></i>
+                                <span class="vi-only">Tháng 01/2021 – Tháng 05/2022</span>
+                                <span class="en-only">January 2021 – May 2022</span>
+                            </span>
+                        </div>
+
+                        <div class="space-y-3 text-sm sm:text-base text-brand-slate leading-relaxed">
+                            <ul class="list-disc list-outside pl-5 space-y-2">
+                                <li>
+                                    <div class="vi-only">Là người chắp bút chính (Primary Drafter) dự thảo Kế hoạch Chiến lược 5 năm của HOSE; tổng hợp và đồng bộ ý kiến đóng góp liên phòng ban để xây dựng chương trình hành động trọng tâm vào phát triển sản phẩm mới, quản lý niêm yết và nâng cấp hạ tầng giao dịch.</div>
+                                    <div class="en-only">Served as the Primary Drafter for HOSE’s 5-Year Strategic Plan; synthesized cross-departmental inputs to construct an actionable roadmap focusing on new product development, listing management, and trading infrastructure upgrades.</div>
+                                </li>
+                                <li>
+                                    <div class="vi-only">Chủ trì phân tích chính sách nghiệp vụ cho các sản phẩm cấu trúc cốt lõi (ETF, Covered Warrants, NVDR); nhận diện các vướng mắc vận hành (operational bottlenecks), đề xuất phương án điều chỉnh chính sách trình UBCKNN phê duyệt và soạn thảo văn bản hướng dẫn kỹ thuật cho các thành viên thị trường.</div>
+                                    <div class="en-only">Acted as the lead analyst on operational policies for core structured products (ETFs, Covered Warrants, NVDR); identified operational bottlenecks, formulated policy amendment proposals for State Securities Commission (SSC) approval, and drafted technical guidelines for market participants.</div>
+                                </li>
+                                <li>
+                                    <div class="vi-only">Đại diện HOSE tham gia Tổ công tác liên ngành của UBCKNN; tổng hợp dữ liệu thị trường và phối hợp soạn thảo các đề xuất định chế cho Chiến lược phát triển thị trường chứng khoán Việt Nam giai đoạn 10 năm và lộ trình nâng hạng thị trường từ Cận biên lên Mới nổi (Frontier to Emerging Market).</div>
+                                    <div class="en-only">Represented HOSE on the SSC’s Inter-ministerial Working Group; consolidated market data and co-drafted regulatory proposals for Vietnam’s 10-Year Securities Market Development Strategy and the market upgrade roadmap from Frontier to Emerging Market status.</div>
+                                </li>
+                                <li>
+                                    <div class="vi-only">Thành viên được chỉ định tham gia Dự án Phát triển Thị trường Gọi vốn Khởi nghiệp (Startup Fundraising Market) do UBCKNN chủ trì; thực hiện nghiên cứu so sánh thông lệ quốc tế và phối hợp soạn thảo đề xuất khung pháp lý trình Bộ Tài chính.</div>
+                                    <div class="en-only">Appointed as a member of the Startup Fundraising Market Development Project led by the SSC; conducted comparative international market research and co-drafted regulatory framework proposals submitted to the Ministry of Finance (MOF).</div>
+                                </li>
+                                <li>
+                                    <div class="vi-only">Ứng dụng kỹ thuật định lượng (Mô hình hóa dữ liệu - Data Modelling bằng công cụ SAS) để thực hiện công trình nghiên cứu: “Mối quan hệ giữa tăng trưởng thị trường sản phẩm ETF và thanh khoản của thị trường chứng khoán”, hỗ trợ xây dựng các mô hình đánh giá rủi ro sản phẩm tài chính.</div>
+                                    <div class="en-only">Applied quantitative techniques (Data Modelling using SAS) to conduct the research project: "The relationship between ETF market growth and stock market liquidity" to support financial product risk assessment models.</div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Company 3: HNX -->
+                    <div id="exp-hnx" class="relative pl-6 sm:pl-8 border-l-2 border-brand-gold/30 space-y-4 pt-4">
+                        <div class="absolute -left-1.5 top-5 w-3.5 h-3.5 rounded-full bg-brand-gold border-2 border-brand-navyLight shadow-sm"></div>
+                        
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div>
+                                <h3 class="text-lg sm:text-xl font-bold text-white font-serif">
+                                    <span class="vi-only">Sở Giao dịch Chứng khoán Hà Nội – HNX</span>
+                                    <span class="en-only">Hanoi Stock Exchange – HNX</span>
+                                </h3>
+                                <p class="text-brand-goldDark font-semibold text-sm mt-0.5">
+                                    <span class="vi-only">Chuyên viên Cao cấp Giám sát</span>
+                                    <span class="en-only">Senior Surveillance Specialist</span>
+                                </p>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 bg-brand-navy text-brand-slate text-xs font-bold rounded-full border border-brand-slate/20 shrink-0 self-start sm:self-auto">
+                                <i class="fa-regular fa-calendar-days mr-1.5 text-brand-gold"></i>
+                                <span class="vi-only">Tháng 09/2007 – Tháng 12/2020</span>
+                                <span class="en-only">September 2007 – December 2020</span>
+                            </span>
+                        </div>
+
+                        <!-- Structured points for HNX -->
+                        <div class="space-y-4 text-sm sm:text-base text-brand-slate leading-relaxed">
+                            
+                            <!-- Submodule: Market Surveillance -->
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-xs tracking-wider uppercase text-slate-500 flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                                    <span class="vi-only">Giám sát Thị trường &amp; Quản trị Rủi ro</span>
+                                    <span class="en-only">Market Surveillance & Risk Management</span>
+                                </h4>
+                                <ul class="list-disc list-outside pl-5 space-y-2">
+                                    <li class="pl-1">
+                                        <div class="vi-only">Trực tiếp thực hiện giám sát và phân tích hoạt động giao dịch của hơn 300 cổ phiếu niêm yết trên HNX & UPCoM; phát hiện và lập hồ sơ bằng chứng các vụ việc trọng yếu về giao dịch nội gián và thao túng giá.</div>
+                                        <div class="en-only">Directly monitored and analyzed trading activities of over 300 listed stocks on HNX & UPCoM; detected and compiled evidentiary dossiers for critical cases of insider trading and market manipulation.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Tham gia các đoàn điều tra/thanh tra chuyên sâu liên ngành của UBCKNN để xử lý các vụ việc thao túng và gian lận thị trường.</div>
+                                        <div class="en-only">Participated in the SSC's cross-agency intensive investigation and inspection teams to audit market manipulation and fraud cases.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Chủ trì mảng giám sát liên thị trường trong giai đoạn chuẩn bị vận hành thị trường chứng khoán phái sinh; biên soạn Cẩm nang Giám sát chính thức và xây dựng bộ tiêu chí cảnh báo sớm (alert mechanisms) liên thị trường giữa tài sản cơ sở và tài sản phái sinh.</div>
+                                        <div class="en-only">Led the cross-market surveillance segment during the pre-operational phase of the derivatives market; authored the official Market Surveillance Manual and built cross-market early alert mechanisms between underlying and derivative assets.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Đầu mối đại diện mảng Giám sát thị trường của HNX trong các dự án phát triển thị trường quốc tế cấp cao, bao gồm Dự án VIE032 (do Luxembourg tài trợ) và Dự án JICA (Nhật Bản).</div>
+                                        <div class="en-only">Served as the Lead Focal Point for HNX Market Surveillance in high-level international market development projects, including the VIE032 Project (funded by Luxembourg) and the JICA Project (Japan).</div>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Submodule: Tech Infrastructure -->
+                            <div class="space-y-2">
+                                <h4 class="font-bold text-xs tracking-wider uppercase text-slate-500 flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand-gold"></span>
+                                    <span class="vi-only">Quản lý Hệ thống Hạ tầng &amp; Công nghệ</span>
+                                    <span class="en-only">Infrastructure & Technology Systems Management</span>
+                                </h4>
+                                <ul class="list-disc list-outside pl-5 space-y-2">
+                                    <li class="pl-1">
+                                        <div class="vi-only">Quản lý toàn diện từ đầu đến cuối quy trình triển khai (end-to-end SDLC) cho Phân hệ Giám sát giao dịch tại HNX thuộc dự án hạ tầng hệ thống KRX cấp quốc gia.</div>
+                                        <div class="en-only">Spearheaded end-to-end SDLC management for the Trading Surveillance Subsystem at HNX under the national KRX system infrastructure project.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Đảm nhiệm vai trò Quản lý dự án (Project Manager) cho sáu (6) hệ thống giám sát triển khai liên tiếp trong chu kỳ 12 năm, thiết lập nền tảng hạ tầng hợp nhất dữ liệu và giám sát thị trường cốt lõi cho HNX.</div>
+                                        <div class="en-only">Served as Project Manager for six (6) consecutive surveillance systems deployed over a 12-year cycle, establishing the core data consolidation and market surveillance infrastructure for HNX.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Điều phối toàn diện vòng đời phát triển hệ thống (SDLC); trực tiếp xây dựng yêu cầu bài toán nghiệp vụ (BR), Tài liệu Yêu cầu Người dùng (URD) và phối hợp thiết kế Tài liệu Yêu cầu Dữ liệu (DRD) với các đối tác phần mềm bên ngoài.</div>
+                                        <div class="en-only">Coordinated the full System Development Life Cycle (SDLC); directly drafted Business Requirements (BR), User Requirements Documents (URD), and co-designed Data Requirements Documents (DRD) with external software vendors.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Thiết kế logic và mô hình kết nối dữ liệu liên hệ thống (Cross-system data schema); vận dụng kiến thức chuyên sâu về cấu trúc dữ liệu hạ tầng thị trường (Hệ thống Giao dịch, Niêm yết, Thông tin thị trường) để định hướng thiết kế giải pháp của đối tác, tối ưu hóa tích hợp, giảm thiểu xung đột hệ thống và xử lý các bài toán logic dữ liệu phức tạp.</div>
+                                        <div class="en-only">Designed cross-system data schemas and logical models; leveraged deep expertise in market infrastructure data structures (Trading, Listing, Market Information systems) to steer vendor solution architecture, optimize integration, minimize system conflicts, and resolve complex data logic issues.</div>
+                                    </li>
+                                    <li class="vi-only">Xây dựng các tài liệu Yêu cầu Nghiệp vụ (BR) và Phân tích Hệ thống (Physical Analysis), chuyển dịch các quy định giám sát thị trường phức tạp thành các đặc tả kỹ thuật hệ thống.</li>
+                                    <li class="en-only">Authored Business Requirement (BR) and System Design (Physical Analysis) documentation, translating complex market surveillance regulations into technical system specifications.</li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Chủ trì toàn bộ công tác kiểm thử chức năng và đảm bảo chất lượng (QA/UAT); xây dựng kịch bản test, điều phối đội ngũ liên chức năng gồm 20 nhân sự giám sát, đóng vai trò đầu mối xử lý lỗi hệ thống (troubleshooting & bug resolution).</div>
+                                        <div class="en-only">Led the entire functional testing and Quality Assurance / User Acceptance Testing (QA/UAT) tracks; developed test scripts, coordinated a cross-functional team of 20 surveillance specialists, and acted as the central point for troubleshooting & bug resolution.</div>
+                                    </li>
+                                    <li class="pl-1">
+                                        <div class="vi-only">Quản lý dự án bảo mật về ứng dụng Trí tuệ nhân tạo/Học máy (Machine Learning) để phát hiện các mô hình giao dịch bất thường; thẩm định các mô hình nghiên cứu lý thuyết từ viện đối tác và trực tiếp kiểm thử thuật toán ML bằng Python trên kho dữ liệu bảo mật của Sở.</div>
+                                        <div class="en-only">Managed a secure project utilizing Artificial Intelligence / Machine Learning (AI/ML) to detect anomalous trading patterns; evaluated theoretical research models from partner institutes and directly stress-tested ML algorithms using Python on the Exchange’s secured data warehouse.</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 2: Education -->
+                <div id="tab-education" class="tab-content space-y-8">
+                    <div class="border-b border-brand-slate/20 pb-4">
+                        <h2 class="text-2xl font-bold font-serif text-white flex items-center space-x-3">
+                            <i class="fa-solid fa-graduation-cap text-brand-gold text-xl"></i>
+                            <span class="vi-only">Học vấn &amp; Đào tạo</span>
+                            <span class="en-only">Education &amp; Academic Background</span>
+                        </h2>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Degree 1 -->
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 border-b border-brand-slate/20 pb-6">
+                            <div class="space-y-1">
+                                <h3 class="text-lg font-bold text-white font-serif">Indiana University Bloomington, USA</h3>
+                                <p class="text-brand-gold font-semibold text-sm">
+                                    <span class="vi-only">Thạc sĩ Quản lý Công (MPA)</span>
+                                    <span class="en-only">Master of Public Affairs (MPA)</span>
+                                </p>
+                                <p class="text-brand-slate text-xs sm:text-sm">
+                                    <span class="vi-only">Được tài trợ thông qua học bổng toàn phần danh giá của Chương trình Lãnh đạo trẻ Việt Nam (VYLA)</span>
+                                    <span class="en-only">Sponsored via full scholarship by the prestigious Vietnam Young Leader Award (VYLA)</span>
+                                </p>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 bg-brand-navy text-brand-slate text-xs font-bold rounded-full border border-brand-slate/20 shrink-0 self-start sm:self-auto">
+                                <i class="fa-regular fa-calendar-days mr-1.5 text-brand-gold"></i>
+                                <span>2015 – 2017</span>
+                            </span>
+                        </div>
+
+                        <!-- Degree 2 -->
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div class="space-y-1">
+                                <h3 class="text-lg font-bold text-white font-serif">
+                                    <span class="vi-only">Đại học Công nghệ / Đại học Quốc gia hàng đầu Việt Nam</span>
+                                    <span class="en-only">Top-tier University in Vietnam (Information Technology)</span>
+                                </h3>
+                                <p class="text-brand-gold font-semibold text-sm">
+                                    <span class="vi-only">Cử nhân Khoa học Máy tính / Công nghệ Phần mềm</span>
+                                    <span class="en-only">Bachelor of Science in Computer Science & software Engineering</span>
+                                </p>
+                                <p class="text-brand-slate text-xs sm:text-sm">
+                                    <span class="vi-only">Tốt nghiệp bằng Khá/Giỏi. Chuyên ngành sâu về cấu trúc dữ liệu, hệ cơ sở dữ liệu và thuật toán.</span>
+                                    <span class="en-only">Graduated with Honors. Focus on advanced database systems and algorithm models.</span>
+                                </p>
+                            </div>
+                            <span class="inline-flex items-center px-3 py-1 bg-brand-navy text-brand-slate text-xs font-bold rounded-full border border-brand-slate/20 shrink-0 self-start sm:self-auto">
+                                <i class="fa-regular fa-calendar-days mr-1.5 text-brand-gold"></i>
+                                <span>2002 – 2006</span>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 3: Core Skills -->
+                <div id="tab-skills" class="tab-content space-y-8">
+                    <div class="border-b border-brand-slate/20 pb-4">
+                        <h2 class="text-2xl font-bold font-serif text-white flex items-center space-x-3">
+                            <i class="fa-solid fa-sliders text-brand-gold text-xl"></i>
+                            <span class="vi-only">Kỹ năng Cốt lõi</span>
+                            <span class="en-only">Core Skills</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        
+                        <!-- Category 1 -->
+                        <div class="bg-brand-navy p-5 rounded-xl border border-brand-slate/10 space-y-3">
+                            <h3 class="font-serif font-bold text-white flex items-center gap-2 border-b border-brand-slate/20 pb-2 text-sm sm:text-base">
+                                <i class="fa-solid fa-landmark text-brand-gold"></i>
+                                <span class="vi-only">Quản trị Chiến lược &amp; Thị trường</span>
+                                <span class="en-only">Strategic &amp; Market Governance</span>
+                            </h3>
+                            <ul class="space-y-2 text-xs sm:text-sm text-brand-slate">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-brand-gold mt-0.5"><i class="fa-solid fa-check-double"></i></span>
+                                    <div>
+                                        <div class="vi-only"><strong class="text-white">Cấu trúc thị trường:</strong> Chuyên môn sâu về cơ chế vận hành sàn giao dịch, niêm yết chứng khoán và phái sinh.</div>
+                                        <div class="en-only"><strong class="text-white">Market Microstructure:</strong> Deep intelligence in securities exchange dynamics, listing management and derivatives market architecture.</div>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-brand-gold mt-0.5"><i class="fa-solid fa-check-double"></i></span>
+                                    <div>
+                                        <div class="vi-only"><strong class="text-white">Soạn thảo chính sách:</strong> Trực tiếp tham gia ban soạn thảo chính sách phát triển thị trường (cấp nhà nước và kế hoạch 5 năm tổ chức).</div>
+                                        <div class="en-only"><strong class="text-white">Policy Analysis & Drafting:</strong> Direct legislative drafting (State level initiatives, 5-year strategic organizational planning).</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Category 2 -->
+                        <div class="bg-brand-navy p-5 rounded-xl border border-brand-slate/10 space-y-3">
+                            <h3 class="font-serif font-bold text-white flex items-center gap-2 border-b border-brand-slate/20 pb-2 text-sm sm:text-base">
+                                <i class="fa-solid fa-database text-brand-gold"></i>
+                                <span class="vi-only">Dữ liệu, Công nghệ &amp; Vận hành dự án</span>
+                                <span class="en-only">Data, Tech &amp; Project Operations</span>
+                            </h3>
+                            <ul class="space-y-2 text-xs sm:text-sm text-brand-slate">
+                                <li class="flex items-start gap-2">
+                                    <span class="text-brand-gold mt-0.5"><i class="fa-solid fa-check-double"></i></span>
+                                    <div>
+                                        <div class="vi-only"><strong class="text-white">Kỹ nghệ Dữ liệu:</strong> Làm sạch dữ liệu, kiến trúc schemas kết nối liên hệ thống (SQL, SAS, Python).</div>
+                                        <div class="en-only"><strong class="text-white">Data Engineering:</strong> Complex data cleansing, data model building, cross-system logical schema design (SQL, SAS, Python).</div>
+                                    </div>
+                                </li>
+                                <li class="flex items-start gap-2">
+                                    <span class="text-brand-gold mt-0.5"><i class="fa-solid fa-check-double"></i></span>
+                                    <div>
+                                        <div class="vi-only"><strong class="text-white">Hệ thống BI:</strong> Thiết lập Dashboard điều hành thời gian thực (Looker Studio) hỗ trợ ra quyết định.</div>
+                                        <div class="en-only"><strong class="text-white">BI Architecture:</strong> Building real-time dynamic corporate operational dashboards on Looker Studio.</div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 4: Honors & Awards -->
+                <div id="tab-honors" class="tab-content space-y-8">
+                    <div class="border-b border-brand-slate/20 pb-4">
+                        <h2 class="text-2xl font-bold font-serif text-white flex items-center space-x-3">
+                            <i class="fa-solid fa-award text-brand-gold text-xl"></i>
+                            <span class="vi-only">Danh hiệu &amp; Giải thưởng</span>
+                            <span class="en-only">Honors &amp; Awards</span>
+                        </h2>
+                    </div>
+
+                    <div class="space-y-6">
+                        <!-- Award 1 -->
+                        <div class="flex gap-4 p-5 rounded-xl border border-brand-gold/30 bg-gradient-to-r from-amber-500/5 to-transparent">
+                            <span class="text-brand-gold text-3xl shrink-0"><i class="fa-solid fa-trophy animate-pulse"></i></span>
+                            <div class="space-y-1">
+                                <h3 class="text-base sm:text-lg font-bold text-white font-serif">
+                                    <span class="vi-only">Học bổng Vietnam Young Leader Award (2015)</span>
+                                    <span class="en-only">Vietnam Young Leader Award (2015)</span>
+                                </h3>
+                                <p class="text-brand-gold font-semibold text-xs sm:text-sm">
+                                    <span class="vi-only">Bộ Giáo dục &amp; Đào tạo phối hợp Bộ Tài chính cấp</span>
+                                    <span class="en-only">Ministry of Education and Training (MOET) &amp; Ministry of Finance</span>
+                                </p>
+                                <p class="text-brand-slate text-xs sm:text-sm">
+                                    <span class="vi-only">Học bổng toàn phần danh giá bậc Thạc sĩ Quản lý Công (MPA) tại Đại học Indiana, Hoa Kỳ, dành riêng cho các nhà hoạch định chính sách xuất sắc.</span>
+                                    <span class="en-only">Full national scholarship granted for pursuing Master of Public Affairs (MPA) at Indiana University, USA, recognizing exceptionally promising strategic public policymakers.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TAB 5: Interests -->
+                <div id="tab-interests" class="tab-content space-y-8">
+                    <div class="border-b border-brand-slate/20 pb-4">
+                        <h2 class="text-2xl font-bold font-serif text-white flex items-center space-x-3">
+                            <i class="fa-solid fa-compass text-brand-gold text-xl"></i>
+                            <span class="vi-only">Sở thích &amp; Phong cách sống</span>
+                            <span class="en-only">Interests &amp; Life Balance</span>
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <!-- Travel Interest -->
+                        <div class="bg-brand-navy p-6 rounded-xl border border-brand-slate/10 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-brand-navyLight text-white flex items-center justify-center text-xl shrink-0 shadow">
+                                <i class="fa-solid fa-plane-departure text-brand-gold"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="font-serif font-bold text-white text-base">
+                                    <span class="vi-only">Khám phá Thế giới</span>
+                                    <span class="en-only">Global Travel</span>
+                                </h3>
+                                <p class="text-brand-slate text-sm leading-relaxed">
+                                    <span class="vi-only">Đã đặt chân tới 34 quốc gia trên thế giới. Đam mê tìm hiểu thực tế lịch sử kiến trúc, giao lưu đa văn hóa và quan sát mô hình vận hành xã hội đặc thù của mỗi châu lục.</span>
+                                    <span class="en-only">Explored 34 countries globally. Passionate about historical architecture, cultural synthesis, and studying international public institution structures first-hand.</span>
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Sports & Wellness Interest -->
+                        <div class="bg-brand-navy p-6 rounded-xl border border-brand-slate/10 flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-lg bg-brand-navyLight text-white flex items-center justify-center text-xl shrink-0 shadow">
+                                <i class="fa-solid fa-person-swimming text-brand-gold"></i>
+                            </div>
+                            <div class="space-y-1.5">
+                                <h3 class="font-serif font-bold text-white text-base">
+                                    <span class="vi-only">Lối sống Năng động &amp; Sức bền</span>
+                                    <span class="en-only">Active Lifestyle &amp; Wellness</span>
+                                </h3>
+                                <p class="text-brand-slate text-sm leading-relaxed">
+                                    <span class="vi-only">Rèn luyện bền bỉ qua bơi lội, yoga chuyên sâu, võ thuật Không thủ đạo (Karatedo) và leo núi dã ngoại (Trekking) để xây dựng thể lực vượt trội, sự kiên định và năng lực tập trung.</span>
+                                    <span class="en-only">Committed to swimming, core yoga techniques, Karatedo training, and trekking challenging routes to build endurance, mindfulness, and precise strategic focus under pressure.</span>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer class="no-print bg-brand-navy text-brand-slate py-8 border-t border-brand-slate/10 text-center text-xs mt-12">
+        <p class="vi-only">Bản quyền © 2026 thuộc về Nguyễn Việt Thùy Nhung. Thiết kế định hình cho vị trí Điều hành cấp cao &amp; Quản trị Doanh nghiệp ngành Tài chính.</p>
+        <p class="en-only">Copyright © 2026 Nhung Nguyen. All rights reserved. Designed for Premium Finance &amp; Corporate Governance Roles.</p>
+    </footer>
+
+    <!-- Integrated JavaScript Engine for Single Toggle Switch & Tab Navigation -->
+    <script>
+        /**
+         * PORTFOLIO CONTROLLER ENGINE
+         * Handles single-button language toggling and custom navigation behaviors
+         */
+
+        // Single Toggle Language Switcher Controller
+        function toggleLanguage() {
+            const body = document.body;
+            const text = document.getElementById('lang-text');
+            
+            if (body.classList.contains('lang-vi')) {
+                // Switch to English
+                body.classList.remove('lang-vi');
+                body.classList.add('lang-en');
+                text.innerText = 'Tiếng Việt';
+            } else {
+                // Switch to Vietnamese
+                body.classList.remove('lang-en');
+                body.classList.add('lang-vi');
+                text.innerText = 'English';
+            }
+        }
+
+        // Keep legacy function to avoid breakages and ensure initialization works
+        function setLanguage(lang) {
+            const body = document.body;
+            const text = document.getElementById('lang-text');
+            
+            body.classList.remove('lang-vi', 'lang-en');
+            if (lang === 'en') {
+                body.classList.add('lang-en');
+                text.innerText = 'Tiếng Việt';
+            } else {
+                body.classList.add('lang-vi');
+                text.innerText = 'English';
+            }
+        }
+
+        // Section Tab-Switching Handler
+        function switchTab(tabId) {
+            // Hide all tab panes
+            const contents = document.querySelectorAll('.tab-content');
+            contents.forEach(content => {
+                content.classList.remove('active');
+            });
+
+            // Reset active-tab pressed states on all navigational buttons
+            const buttons = document.querySelectorAll('.tab-btn');
+            buttons.forEach(button => {
+                button.classList.remove('active-tab');
+            });
+
+            // Make target pane active
+            const activePane = document.getElementById(tabId);
+            if (activePane) {
+                activePane.classList.add('active');
+            }
+
+            // Indent active button (Pressed 3D physical effect)
+            const activeBtn = document.getElementById('btn-' + tabId);
+            if (activeBtn) {
+                activeBtn.classList.add('active-tab');
+            }
+
+            // Scroll automatically into view for mobile devices
+            if (window.innerWidth < 1024 && activePane) {
+                activePane.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Anchored Scrolling inside Experience Subsections (Saladin / HOSE / HNX)
+        function scrollToExperienceSection(sectionId) {
+            // Force view of the main experience tab first
+            switchTab('tab-experience');
+            
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    
+                    // Highlight element briefly to attract user focus
+                    element.classList.add('bg-brand-gold/10', 'rounded-lg');
+                    setTimeout(() => {
+                        element.classList.remove('bg-brand-gold/10');
+                    }, 1500);
+                }
+            }, 150);
+        }
+
+        // Initializing settings on window load
+        window.addEventListener('DOMContentLoaded', () => {
+            // Default setup to Vietnamese
+            const body = document.body;
+            body.classList.add('lang-vi');
+            
+            // Initialize Lucide Icons
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>
